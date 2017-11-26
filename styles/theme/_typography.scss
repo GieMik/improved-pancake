@@ -1,0 +1,78 @@
+// -----------------------------------------------------------------------------
+//
+//    Font imports
+//
+// -----------------------------------------------------------------------------
+
+@include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Regular', 400, normal, ttf);
+@include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Italic', 400, italic, ttf);
+@include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Bold', 700, normal, ttf);
+@include font-face('Lato', 'LatoLatin/fonts/LatoLatin-BoldItalic', 700, italic, ttf);
+
+// -----------------------------------------------------------------------------
+//
+//    Typography
+//
+// -----------------------------------------------------------------------------
+
+html {
+    font-size: $baseFontSize;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    font-family: 'Lato', Arial, sans-serif
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        margin: 0;
+        line-height: inherit;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    font-size: 100%;
+}
+
+h1, .h1 {
+    @include fs($h1);
+}
+
+h2, .h2 {
+    @include fs($h2);
+}
+
+h3, .h3 {
+    @include fs($h3);
+}
+
+h4, .h4, p, label, input, menuitem {
+    @include fs($h4);
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+h5, .h5, small {
+    @include fs($h5);
+}
+
+h6, .h6 {
+    @include fs($h6);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'Lato', Arial, sans-serif
+}

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------------------------------------
+    Author: GieMik8
+    Description: ABB style
+    Email: giemik8@gmail.com
+----------------------------------------------------------------------------- */
+
+// -----------------------------------------------------------------------------
+//
+//    Imports
+//
+// -----------------------------------------------------------------------------
+
+@import 'theme/settings';
+
+@import 'helpers/mixins';
+@import 'helpers/media-queries';
+
+@import 'theme/typography';
+
+.nuxt-progress {
+    margin: auto;
+    // background-color: green !important;
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    margin: auto;
+}
