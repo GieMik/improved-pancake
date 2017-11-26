@@ -1,5 +1,8 @@
 <template>
-  <h2>This is beer: {{ id }}</h2>
+  <div>
+    <h2>This is beer: {{ id }}</h2>
+    <nuxt-link to="/">Back to list</nuxt-link>
+  </div>
 </template>
 
 <script>

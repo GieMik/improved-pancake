@@ -22,7 +22,7 @@ if (config.dev) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require('./app/routes')(app)
+require('./api/routes')(app)
 // app.use(express.static('assets'))
 
 app.use(nuxt.render)
