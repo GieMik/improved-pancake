@@ -1,0 +1,50 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#__nuxt {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    border-top: solid 1px darken($F, 10%);
+    padding: 10px 0;
+    color: $primary;
+}
+
+.container {
+    width: 800px;
+    max-width: calc(100% - 40px);
+    margin: auto;
+}
+
+.page {
+    &-header {
+        padding: 10px 0;
+        border-bottom: solid 1px $gray;
+    }
+
+    &-title {
+        font-weight: 300;
+    }
+
+    &-content {
+        padding: 20px 0;
+    }
+}

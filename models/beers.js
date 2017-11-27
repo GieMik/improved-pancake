@@ -1,13 +1,6 @@
 module.exports = {  
   "items":[  
     {  
-      "id":"1",
-      "name":"Šviesusis",
-      "bitterness":3,
-      "color":"light",
-      "alc":6
-    },
-    {  
       "id":"2",
       "name":"Tamsusis",
       "bitterness":5,
@@ -20,6 +13,13 @@ module.exports = {
       "bitterness":4,
       "color":"dark",
       "alc":7
+    },
+    {  
+      "id":"1",
+      "name":"Šviesusis",
+      "bitterness":3,
+      "color":"light",
+      "alc":6
     },
     {  
       "id":"4",

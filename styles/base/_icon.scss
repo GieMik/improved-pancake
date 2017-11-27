@@ -1,0 +1,10 @@
+.icon {
+    width: 20px;
+    height: 20px;
+    color: $primary;
+    vertical-align: text-bottom;
+}
+
+polygon, rect, path {
+    fill: currentColor;
+}

@@ -4,6 +4,8 @@
 //
 // -----------------------------------------------------------------------------
 
+@include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Light', 300, normal, ttf);
+@include font-face('Lato', 'LatoLatin/fonts/LatoLatin-LightItalic', 300, italic, ttf);
 @include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Regular', 400, normal, ttf);
 @include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Italic', 400, italic, ttf);
 @include font-face('Lato', 'LatoLatin/fonts/LatoLatin-Bold', 700, normal, ttf);
@@ -63,6 +65,11 @@ h4, .h4, p, label, input, menuitem {
 
 h5, .h5, small {
     @include fs($h5);
+
+    .icon {
+        width: 10px;
+        height: 10px;
+    }
 }
 
 h6, .h6 {

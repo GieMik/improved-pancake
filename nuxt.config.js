@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'spa', // Remove to enable SSR mode
+  // mode: 'spa', // Remove to enable SSR mode
   css: [
     '~/node_modules/normalize.css/normalize.css',
     '~/styles/grid.scss',
@@ -7,5 +7,11 @@ module.exports = {
   ],
   loading: {
     color: '#24bbff'
-  }
+  },
+  router: {
+    middleware: 'route'
+  },
+  plugins: [
+    '~/plugins/icons.js'
+  ]
 }

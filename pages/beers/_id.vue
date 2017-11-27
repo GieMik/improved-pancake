@@ -9,6 +9,9 @@
 export default {
   async asyncData ({ params }) {
     return { id: params.id }
+  },
+  created() {
+    this.$store.commit('SET_PAGE_TITLE', `Beer ${this.id}`)
   }
 }
 </script>

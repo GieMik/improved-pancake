@@ -1,0 +1,56 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; 
+}
+
+.table {
+    &--hoverable {
+
+        tbody tr .icon {
+            opacity: 0;
+            transition: all $trans ease;
+        }
+        
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: darken($F, 2%);
+        }
+
+        tbody tr:hover .icon {
+            opacity: 1;
+            transition: all $trans ease;
+        }
+    }
+}
+
+thead {
+    font-weight: 700;
+
+    tr {
+        // text-transform: uppercase;
+        // @include fs($h5);
+
+        .icon {
+            width: 15px;
+            height: 15px;
+        }
+        
+    }
+}
+
+tbody {
+    tr {
+        border-bottom: solid 1px darken($F, 15%);
+    }
+}
+
+tfoot {
+    td {
+        color: darken($F, 50%);
+    }
+}
+
+td {
+    padding: 8px;
+}

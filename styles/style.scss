@@ -17,15 +17,20 @@
 @import 'helpers/mixins';
 @import 'helpers/media-queries';
 
+@import 'layout/layout';
+
 @import 'theme/typography';
+
+@import 'state/transitions';
+
+@import 'modules/table';
+
+@import 'base/icon';
+@import 'base/base';
 
 .nuxt-progress {
     margin: auto;
+    height: 5px !important;
     // background-color: green !important;
 }
 
-.container {
-    width: 800px;
-    max-width: 80%;
-    margin: auto;
-}
