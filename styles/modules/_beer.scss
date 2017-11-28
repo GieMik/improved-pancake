@@ -1,0 +1,29 @@
+.beer {
+    &__type {
+        flex: 5 0 auto;
+    }
+
+    &__info {
+        flex: 1 0 300px;
+    }
+
+    &__name {
+        
+    }
+    
+    &__color {
+        
+    }
+
+    &__alc, &__bitterness {
+        background-color: darken($F, 4%);
+        padding: 40px 20px;
+
+        h2 {
+            margin-top: 30px;
+        }
+    }
+
+    &__bitterness {
+    }
+}

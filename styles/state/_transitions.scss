@@ -5,3 +5,11 @@
 .page-enter, .page-leave-active {
     opacity: 0;
 }
+
+.trans {
+    transition: all $trans ease;
+    
+    &:hover, &:focus {
+        transition: all $trans ease;
+    }
+}

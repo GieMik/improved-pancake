@@ -2,20 +2,36 @@
 <div class="wrapper">
   <icons></icons>
   <header>
-    <div class="container">
-      <div class="page-header">
-        <h3><nuxt-link :to="{ name: 'index' }">Cheers`</nuxt-link></h3>
-        <h1 class="page-title">{{ $store.state.pageTitle }}</h1>
-      </div>
+    <div class="container fluid">
+      <h3><nuxt-link :to="{ name: 'index' }">Cheers`</nuxt-link></h3>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="page-content">
-        <nuxt/>
+      <div class="window">
+        <div class="page-header">
+          <h1 class="page-title">{{ $store.state.pageTitle }}</h1>
+        </div>
+        <div class="page-content">
+          <nuxt/>
+        </div>
       </div>
     </div>
   </main>
-  <footer class="ms_t-center"><h5>Made by GieMik | Powered by Nuxt.js & Vue.js</h5></footer>
+  <footer class="ms_t-center">
+    <div class="container fluid">
+      <h5><span class="t-nowrap">Made by GieMik</span> | <span class="t-nowrap">Powered by <span class="c-vue">Nuxt.js</span> &amp; <span class="c-vue">Vue.js</span></span></h5>
+    </div>
+  </footer>
 </div>
 </template>
+
+<script>
+export default {
+  watch: {
+    '$store.state.pageTitle'() {
+      console.log('has changed')
+    }
+  }
+}
+</script>

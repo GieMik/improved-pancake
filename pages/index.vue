@@ -1,52 +1,50 @@
 <template>
-  <div v-if="beers">
-    <p>{{ name }} ------- {{ color }} ------- {{ bitterness }} ------- {{ alc }}</p>
+  <div>
     <table class="table table--hoverable">
       <thead>
         <tr>
           <td width="30px" class="ms_t-center">
-            <nuxt-link :to="{ name: 'index', query: { attr: 'id', sort: $route.query.sort === 'asc' ? 'desc': 'asc' } }">
+            <a href="#" @click="sort('id')">
               #
               <icon v-if="$route.query.attr === 'id'" :icon="$route.query.sort === 'asc' ? 'sort1-9': 'sort9-1'"></icon>  
-            </nuxt-link>
+            </a>
           </td>
           <td>
-            <nuxt-link :to="{ name: 'index', query: { attr: 'name', sort: $route.query.sort === 'asc' ? 'desc': 'asc' } }">
+            <a href="#" @click="sort('name')">
               Name
               <icon v-if="$route.query.attr === 'name'" :icon="$route.query.sort === 'asc' ? 'sortA-Z': 'sortZ-A'"></icon>  
-            </nuxt-link>
+            </a>
           </td>
-          <td class="ms_t-center">
-            <nuxt-link :to="{ name: 'index', query: { attr: 'color', sort: $route.query.sort === 'asc' ? 'desc': 'asc' } }">
+          <td class="ms_t-center ms_hidden ">
+            <a href="#" @click="sort('color')">
               Color
               <icon v-if="$route.query.attr === 'color'" :icon="$route.query.sort === 'asc' ? 'sortA-Z': 'sortZ-A'"></icon>  
-            </nuxt-link>
+            </a>
           </td>
-          <td class="ms_t-center">
-            <nuxt-link :to="{ name: 'index', query: { attr: 'bitterness', sort: $route.query.sort === 'asc' ? 'desc': 'asc' } }">
+          <td width="120px" class="ms_t-center ms_hidden">
+            <a href="#" @click="sort('bitterness')">
               Bitterners
               <icon v-if="$route.query.attr === 'bitterness'" :icon="$route.query.sort === 'asc' ? 'sort1-9': 'sort9-1'"></icon>  
-            </nuxt-link>
+            </a>
           </td>
-          <td width="80px" class="ms_t-center">
-            <nuxt-link :to="{ name: 'index', query: { attr: 'alc', sort: $route.query.sort === 'asc' ? 'desc': 'asc' } }">
+          <td width="120px" class="ms_t-center ms_hidden">
+            <a href="#" @click="sort('alc')">
               Alc
               <icon v-if="$route.query.attr === 'alc'" :icon="$route.query.sort === 'asc' ? 'sort1-9': 'sort9-1'"></icon>  
-            </nuxt-link>
+            </a>
           </td>
           <td width="20px" class="ms_t-center"></td>
         </tr>
         <tr>
           <td></td>
-          <td><input @blur="go" v-model="name" type="text" placeholder="Filter by Name"></td>
-          <!-- <td><input @blur="search" v-model="color" type="text" placeholder="Filter by Color"></td> -->
-          <td>
+          <td><input @keyup.enter="go" @blur="go" v-model="name" type="text" placeholder="Filter by Name"></td>
+          <td class="ms_t-center ms_hidden ">
             <select @change="go" v-model="color">
               <option value="">Select color</option>
               <option :key="value" v-for="value in colorValues">{{ value }}</option>
             </select>
           </td>
-          <td>
+          <td class="ms_hidden">
             <no-ssr>
               <vue-slider 
               ref="slider"
@@ -54,10 +52,11 @@
               tooltip="hover"
               :max="10"
               @drag-end="go"
+              @click.native="go"
               v-model="bitterness"></vue-slider>
             </no-ssr>
           </td>
-          <td>
+          <td class="ms_hidden">
             <no-ssr>
               <vue-slider 
               ref="slider"
@@ -65,26 +64,34 @@
               tooltip="hover"
               :max="10"
               @drag-end="go"
+              @click.native="go"
               v-model="alc"></vue-slider>
             </no-ssr>
           </td>
           <td></td>
         </tr>
       </thead>
-      <tbody>
-        <nuxt-link tag="tr" :to="{ name: 'beers-id', params: { id: beer.id } }" :key="index" v-for="(beer, index) in beers.items">
+      <tbody v-if="!data.errors">
+        <nuxt-link tag="tr" :to="{ name: 'beers-id', params: { id: beer.id } }" :key="index" v-for="(beer, index) in data.data.items">
           <td class="ms_t-center">{{ beer.id }}</td>
           <td>{{ beer.name }}</td>
-          <td class="ms_t-center">{{ beer.color }}</td>
-          <td class="ms_t-center">{{ beer.bitterness }}</td>
-          <td class="ms_t-center">{{ beer.alc }}</td>
+          <td class="ms_t-center ms_hidden">{{ beer.color }}</td>
+          <td class="ms_t-center ms_hidden">{{ beer.bitterness }}</td>
+          <td class="ms_t-center ms_hidden">{{ beer.alc }}</td>
           <td class="ms_t-center"><icon icon="link"></icon></td>
         </nuxt-link>
       </tbody>
-      <tfoot>
+      <tbody v-else>
+        <tr>
+          <td colspan="6">
+            <h3 class="notification ms_t-center">{{ data.message }}</h3>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot v-if="!data.errors">
         <tr>
           <td class="ms_t-right" colspan="6">
-            Items count: {{ beers.itemCount }}
+            Items count: {{ data.data.items.length }}
           </td>
         </tr>
       </tfoot>
@@ -109,17 +116,17 @@ export default {
     let { data }  = await axios.get(`http://localhost:8000/api/beers`, { headers: {
       'Authorization': 'VerySecretToken'
     }, params: query }).catch((err) => {
-      // console.log(err)
+      console.warn(err)
     })
-    return { beers: data  }
+    return { data }
   },
   components,
   data() {
     return {
       name: '',
       color: '',
-      bitterness: [0, 10],
-      alc: [0, 10],
+      bitterness: [0,10],
+      alc: [0,10],
       colorValues: ['Light', 'Dark']
     }
   },
@@ -132,16 +139,24 @@ export default {
     }
   },
   methods: {
+    sort(attr) {
+      let query = { attr, sort: this.$route.query.sort === 'asc' ? 'desc': 'asc', ...this.searchQuery }
+      this.$router.push({ name: 'index', query})
+    },
     go() {
-      let currentQuery = this.$route.query
-      this.$router.push({name: 'index', query: { 
-        ...currentQuery,
+      this.$router.push({name: 'index', query: {
+        ...this.$route.query, ...this.searchQuery
+      }})
+    }
+  },
+  computed: {
+    searchQuery() {
+      return {
         name: this.name !== '' ? this.name : null, 
         color: this.color !== '' ? this.color : null, 
         bitterness: JSON.stringify(this.bitterness) !== '[0,10]' ? this.bitterness : null, 
-        // alc: this.alc[0] !== 0 && this.alc[0] !== 10 ? this.alc : null, 
         alc: JSON.stringify(this.alc) !== '[0,10]' ? this.alc : null, 
-      }})
+      }
     }
   },
   created() {

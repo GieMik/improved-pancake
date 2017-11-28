@@ -21,16 +21,18 @@
 
 @import 'theme/typography';
 
-@import 'state/transitions';
-
 @import 'modules/table';
+@import 'modules/beer';
 
 @import 'base/icon';
 @import 'base/base';
 
+@import 'state/transitions';
+@import 'state/state';
+
 .nuxt-progress {
-    margin: auto;
-    height: 5px !important;
+    margin: 46px auto 0;
+    // height: 4px !important;
     // background-color: green !important;
 }
 

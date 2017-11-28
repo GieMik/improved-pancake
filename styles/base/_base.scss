@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
     color: $primary;
@@ -5,4 +9,29 @@ a {
     &:hover {
         color: darken($primary, 10%)
     }
+}
+
+input, select {
+    outline: none;
+    border: solid 1px darken($F, 8%);
+    border-radius: 2px;
+    padding: 5px 8px;
+
+    &:focus {
+        border-color: $blue;
+        @extend .trans;
+    }
+}
+
+select {
+    cursor: pointer;
+}
+
+.navigate {
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.notification {
+    font-weight: 300; 
 }

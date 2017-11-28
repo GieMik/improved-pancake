@@ -1,8 +1,12 @@
 .icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     color: $primary;
     vertical-align: text-bottom;
+    
+    &--h-reverse {
+        transform: scale(-1, 1)
+    }
 }
 
 polygon, rect, path {

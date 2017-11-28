@@ -53,4 +53,10 @@ tfoot {
 
 td {
     padding: 8px;
+
+    &.ms_hidden {
+        @include mq('ts') {
+            display: table-cell;
+        }
+    }
 }
