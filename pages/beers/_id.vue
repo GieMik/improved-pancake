@@ -30,7 +30,7 @@ import axios from 'axios'
 
 export default {
   async asyncData ({ params }) {
-    let { data }  = await axios.get(`http://localhost:8000/api/beer/${params.id}`, { headers: {
+    let { data }  = await axios.get(`/api/beer/${params.id}`, { headers: {
       'Authorization': 'VerySecretToken'
     }}).catch((err) => {
       console.warn(err)

@@ -113,7 +113,7 @@ components['no-ssr'] = NoSSR
 
 export default {
   async asyncData ({ params, query, req }) {
-    let { data }  = await axios.get(`http://localhost:8000/api/beers`, { headers: {
+    let { data }  = await axios.get(`/api/beers`, { headers: {
       'Authorization': 'VerySecretToken'
     }, params: query }).catch((err) => {
       console.warn(err)
