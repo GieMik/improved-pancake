@@ -6,12 +6,20 @@ module.exports = {
     '~/styles/style.scss'
   ],
   loading: {
-    color: '#24bbff'
+    color: '#24bbff',
+    height: '5px'
   },
   router: {
     middleware: 'route'
   },
   plugins: [
     '~/plugins/icons.js'
-  ]
+  ],
+  head: {
+    meta: [
+      { charset: 'utf-8' },
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ]
+  }
 }

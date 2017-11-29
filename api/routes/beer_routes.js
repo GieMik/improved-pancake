@@ -13,8 +13,6 @@ module.exports = function(app) {
 
     let beer = beers.items.find(x => x.id === req.params.id)
 
-    console.log(beer)
-
     if (!beer) {
       res.send({errors: 1, data: null, message: 'Sorry, such beer doesnt\' exist'});
       return

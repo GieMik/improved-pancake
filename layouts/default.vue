@@ -3,7 +3,7 @@
   <icons></icons>
   <header>
     <div class="container fluid">
-      <h3><nuxt-link :to="{ name: 'index' }">Cheers`</nuxt-link></h3>
+      <h3><nuxt-link class="c-white" :to="{ name: 'index' }">Cheers`</nuxt-link></h3>
     </div>
   </header>
   <main>
@@ -25,13 +25,3 @@
   </footer>
 </div>
 </template>
-
-<script>
-export default {
-  watch: {
-    '$store.state.pageTitle'() {
-      console.log('has changed')
-    }
-  }
-}
-</script>

@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const host = process.env.HOST || '0.0.0.0'
+const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || 8000;
 
 // Import and set Nuxt.js options

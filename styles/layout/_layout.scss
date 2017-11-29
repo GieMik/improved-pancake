@@ -20,7 +20,7 @@ body {
 }
 
 header {
-    background-color: $F;
+    background: linear-gradient(90deg, $blue,  lighten($blue, 10%));
     padding: 10px 0;
     border-bottom: solid 1px darken($F, 8%);
 }

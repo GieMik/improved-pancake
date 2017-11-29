@@ -3,10 +3,9 @@
     <table class="table table--hoverable">
       <thead>
         <tr>
-          <td width="30px" class="ms_t-center">
+          <td width="50px" class="ms_t-center">
             <a href="#" @click="sort('id')">
-              #
-              <icon v-if="$route.query.attr === 'id'" :icon="$route.query.sort === 'asc' ? 'sort1-9': 'sort9-1'"></icon>  
+              #<icon v-if="$route.query.attr === 'id'" :icon="$route.query.sort === 'asc' ? 'sort1-9': 'sort9-1'"></icon>  
             </a>
           </td>
           <td>
@@ -134,10 +133,7 @@ export default {
   },
   head() {
     return {
-      title: 'Cheers\' - beers list',
-      meta: [
-        { hid: 'description', name: 'description', content: 'My custom description' }
-      ]
+      title: 'Cheers\' - Beers List'
     }
   },
   methods: {

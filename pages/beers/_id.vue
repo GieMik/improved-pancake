@@ -38,6 +38,11 @@ export default {
     })
     return { data }
   },
+  head() {
+    return {
+      title: `Cheers\' - ${this.data.data.name}`
+    }
+  },
   created() {
     if (!this.data.errors) {
       this.$store.commit('SET_PAGE_TITLE', `${this.data.data.name}`)
