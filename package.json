@@ -22,6 +22,7 @@
     "express": "^4.15.2",
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11",
+    "vue-no-ssr": "^0.2.2",
     "vue-slider-component": "^2.4.6"
   },
   "engines": {
