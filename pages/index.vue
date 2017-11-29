@@ -100,8 +100,10 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import NoSSR from 'vue-no-ssr'
+
+import axios from '~/plugins/axios'
 
 let components= {}
 if (process.browser) {
