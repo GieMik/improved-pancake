@@ -20,6 +20,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "newrelic": "^2.4.1",
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11",
     "vue-no-ssr": "^0.2.2",

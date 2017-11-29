@@ -1,1 +1,1 @@
-web: nuxt build
+web: node server.js
